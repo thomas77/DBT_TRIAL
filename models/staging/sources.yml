@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: source_random
+    database: test_dev
+    schema: STG
+    tables:
+      - name: customers
+      - name: agents
