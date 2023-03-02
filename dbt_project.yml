@@ -35,4 +35,7 @@ models:
   demo:
     # Applies to all files under models/example/
     marts:
-      materialized: table
+      crm:
+        +schema:crm
+      finance:
+        +schema:finance 

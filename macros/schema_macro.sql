@@ -5,11 +5,10 @@
 
         {{ default_schema }}
 
+    {%- elif env_var('DBT_MY_ENV','') == 'prod' -%}
 
+       {{ custom_schema_name | trim }}
 
-    {% elif target.name in ['prod'] %}
-        
-        {{ custom_schema_name | trim }}
 
     {%- else -%}
 
