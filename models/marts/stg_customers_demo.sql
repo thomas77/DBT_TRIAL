@@ -1,3 +1,6 @@
+{{ config(schema='marketing') }}
+
+
 with customers as (select 
 
 ID as customer_id,
