@@ -1,9 +1,18 @@
 version: 2
 
 sources:
-  - name: source_random
+  - name: stg
     database: test_dev
-    schema: STG
     tables:
       - name: customers
-      - name: agents
+      - name: ag
+        identifier: agents
+      - name : product
+        freshness: # default freshness
+          warn_after: {count: 12, period: day}
+          error_after: {count: 24, period: day}
+        loaded_at_field: order_date
+  - name: stripe
+    database: raw
+    tables:
+      - name: payment

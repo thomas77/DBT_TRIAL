@@ -1,0 +1,15 @@
+version: 2
+metrics:
+  - name: payments
+    label: New Payments
+    model: ref('stg_payments')
+    description: "The 14 day rolling count of paying customers using the product"
+
+    calculation_method: sum
+    expression: amount
+
+    timestamp: created
+    time_grains: [day, week, month, year]      
+
+    dimensions:
+      - status
