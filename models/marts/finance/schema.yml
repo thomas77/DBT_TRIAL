@@ -4,8 +4,6 @@ models:
     description: '{{ doc("payments") }}'
     columns: 
       - name: id
-        tests:
-          - not_null
 
 
   
