@@ -6,7 +6,7 @@ UPPER(NAME) as name,
 region as region_id
 
 
-from {{ source('source_random', 'customers') }}
+from {{ source('stg', 'customers') }}
 
 )
 
