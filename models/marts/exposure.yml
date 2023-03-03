@@ -14,8 +14,6 @@ exposures:
       - ref('stg_payments')
       - ref('stg_customers_demo')
       - source('stripe', 'payment')
-      - metric('payments')
-
     owner:
       name: Callum McData
       email: data@jaffleshop.com
