@@ -1,3 +1,6 @@
+{{ config(alias='stg_payments_alias') }}
+
+
 with payments as (
 
 select id,

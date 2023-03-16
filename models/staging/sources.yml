@@ -12,7 +12,12 @@ sources:
           warn_after: {count: 12, period: day}
           error_after: {count: 24, period: day}
         loaded_at_field: order_date
+    
   - name: stripe
     database: raw
     tables:
       - name: payment
+  - name: dbt_tletellier
+    database: test_dev
+    tables:
+      - name: drugs

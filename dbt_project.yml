@@ -25,6 +25,12 @@ clean-targets:         # directories to be removed by `dbt clean`
   - "dbt_packages"
 
 
+on-run-end:
+  - 'grant usage on schema {{ target.schema }} to role ACCOUNTADMIN'
+  - 'grant select on all tables in schema {{ target.schema }} to role ACCOUNTADMIN'
+
+
+
 # Configuring models
 # Full documentation: https://docs.getdbt.com/docs/configuring-models
 
@@ -33,8 +39,10 @@ clean-targets:         # directories to be removed by `dbt clean`
 # using the `{{ config(...) }}` macro.
 models:
     # Applies to all files under models/example/
-    marts:
-      crm:
-        +schema:crm
-      finance:
-        +schema:finance 
+    crm:
+      schema:crm
+    finance:
+      schema: finance
+      +tags: 
+        - "daily"
+        - "bg"
