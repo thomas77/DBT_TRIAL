@@ -1,18 +1,14 @@
 version: 2
 
 sources:
-  - name: stg
-    database: test_dev
+  - name: raw
+    database: test
+    description: C'est une base avec des raw data
     tables:
       - name: customers
-      - name: ag
-        identifier: agents
-      - name : product
-        freshness: # default freshness
-          warn_after: {count: 12, period: day}
-          error_after: {count: 24, period: day}
-        loaded_at_field: order_date
-  - name: stripe
-    database: raw
-    tables:
-      - name: payment
+        description: Cette table contient les données clients
+        columns:
+         - name: id
+           tests:
+              - not_null
+              - unique
