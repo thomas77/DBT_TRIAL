@@ -16,5 +16,5 @@ from customer_purchases
 inner join  customers on customers.ID_CLIENT=customer_purchases.id_customer)
 
 
-
+-- comment  sffdf ff
 select * from final
