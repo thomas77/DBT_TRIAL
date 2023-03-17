@@ -1,0 +1,21 @@
+version: 2
+
+models:
+  - name: stg_customer_purchases
+    columns:
+      - name: id_customer
+        tests:
+          - not_null
+          - relationships:
+              to: ref('stg_customers')
+              field: id_client
+              config:
+                    severity: error
+                    error_if: ">1000"
+                    warn_if: ">50"
+      - name: purchase_date
+        tests:
+          - not_null
+      - name: amount
+        tests:
+          - not_null

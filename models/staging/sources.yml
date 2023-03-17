@@ -9,6 +9,45 @@ sources:
         description: Cette table contient les données clients
         columns:
          - name: id
+           description: c'est la primary key
            tests:
               - not_null
-              - unique
+              - unique:
+                  config:
+                    severity: error
+                    error_if: ">10"
+                    warn_if: ">5"
+         - name: gender
+           description: c'est le genre de la personne
+           tests:
+             - accepted_values:
+                 values:
+                   - "Agender"
+                   - "Genderqueer"
+                   - "Male"
+                   - "Female"
+                   - "Polygender"
+                   - "Bigender"
+                   - "Genderfluid"
+                   - "Non-binary"
+
+      - name: customer_purchases
+        description: cette table contient les achats clients
+        freshness: # default freshness
+          warn_after: {count: 24, period: hour}
+          error_after: {count: 148, period: hour}
+        loaded_at_field: purchase_date
+        columns:
+         - name: id_customer
+           description: Reference la colonne id dans la table customers 
+           tests:
+            - not_null
+         - name: purchase_date
+           description: Date d achat
+           tests:
+            - not_null
+         - name : purchase_amount
+           description:  montant de l achat
+           tests:
+            - not_null
+      - name : order_status            
