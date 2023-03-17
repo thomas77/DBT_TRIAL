@@ -1,4 +1,4 @@
-{% docs payments %}
+{% docs customers_doc %}
 
 This table contains clickstream events from the marketing website.
 

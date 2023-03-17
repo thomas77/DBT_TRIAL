@@ -1,6 +1,9 @@
 version: 2
 
 models:
+  
+  - name: stg_customers
+    description: '{{ doc("customers_doc") }}'
   - name: stg_customer_purchases
     columns:
       - name: id_customer

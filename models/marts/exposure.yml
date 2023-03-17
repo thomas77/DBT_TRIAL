@@ -11,8 +11,8 @@ exposures:
       Did someone say "exponential growth"?
 
     depends_on:
-      - ref('stg_payments')
-      - ref('stg_customers_demo')
+      - ref('fct_customer_purchases')
+
     owner:
       name: Callum McData
       email: data@jaffleshop.com
