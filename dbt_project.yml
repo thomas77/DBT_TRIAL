@@ -32,9 +32,16 @@ clean-targets:         # directories to be removed by `dbt clean`
 # as tables. These settings can be overridden in the individual model files
 # using the `{{ config(...) }}` macro.
 models:
+  demo:
     # Applies to all files under models/example/
     marts:
       finance:
-        +materialized: table
+        +materialized: view
     staging:
+      +required_tests: {"unique.*|not_null": 1}
       +materialized: table
+
+tests:
+  demo:
+    +severity: warn
+    +store_failures: true
