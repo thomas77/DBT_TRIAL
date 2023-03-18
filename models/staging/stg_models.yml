@@ -19,6 +19,7 @@ models:
       - name: purchase_date
         tests:
           - not_null
+          - is_empty
       - name: amount
         tests:
           - not_null
