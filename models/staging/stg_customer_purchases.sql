@@ -6,5 +6,5 @@ PURCHASE_AMOUNT as AMOUNT
 from {{ source('raw', 'customer_purchases') }}
 )
 
-
+-- juste a comment
 select * from customer_purchases
