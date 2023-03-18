@@ -5,6 +5,7 @@ sources:
     database: test
     description: C'est une base avec des raw data
     tables:
+      - name : products 
       - name: customers
         description: Cette table contient les données clients
         columns:

@@ -18,7 +18,12 @@ models:
                     warn_if: ">50"
       - name: purchase_date
         tests:
-          - not_null
+          - not_null:
+              config:
+                 store_failures: true
+                 schema: test_failures
+          - is_empty
+        
       - name: amount
         tests:
           - not_null
