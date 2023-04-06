@@ -1,20 +1,25 @@
-with customers as (
+with
+    customers as (select * from {{ ref("stg_customer") }}),
 
-    select * from {{ ref('stg_customers') }}
-),
+    customer_purchases as (select * from {{ ref("stg_customer_purchases") }}),
 
- customer_purchases as (
+    products as (select * from {{ ref("dim_products") }}),
 
-    select * from {{ ref('stg_customer_purchases') }}
-),
+    final as (
 
- final as( 
-select customers.ID_CLIENT, customer_purchases.purchase_date, customer_purchases.amount,
-customers.FIRST_NAME, customers.LAST_NAME,
-sum(customer_purchases.amount) over (partition by customer_purchases.ID_CUSTOMER order by customer_purchases.PURCHASE_DATE ) as total_purchase 
-from customer_purchases
-inner join  customers on customers.ID_CLIENT=customer_purchases.id_customer)
+        select
+            customers.id_customer,
+            customers.email,
+            products.product_id,
+            products.product_name,
+            customer_purchases.id_purchase,
+            customer_purchases.amount
+        from customers
+        inner join
+            customer_purchases on customers.id_customer = customer_purchases.id_customer
+        inner join products on products.product_id = customer_purchases.id_product
 
+    )
 
--- comment  sffdf ff
-select * from final
+select *
+from final

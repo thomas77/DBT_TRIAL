@@ -1,11 +1,11 @@
 {% docs customers_doc %}
 
-This table contains clickstream events from the marketing website.
+This table contains customers information from the crm database
 
-The events in this table are recorded by Snowplow and piped into the warehouse on an hourly basis. The following pages of the marketing site are tracked:
- - /
- - /about
- - /team
- - /contact-us
+The table contains many information like:
+ - The customer email
+ - The name and first name
+ - The gender
+
 
 {% enddocs %}
