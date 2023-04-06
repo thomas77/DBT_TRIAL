@@ -36,12 +36,11 @@ models:
     # Applies to all files under models/example/
     marts:
       finance:
-        +materialized: view
+        +materialized: table
     staging:
-      +required_tests: {"unique.*|not_null": 1}
-      +materialized: table
+      +materialized: view
 
 tests:
   demo:
-    +severity: warn
+    +severity: error
     +store_failures: true

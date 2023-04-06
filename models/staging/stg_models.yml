@@ -2,13 +2,17 @@ version: 2
 
 models:
   
-  - name: stg_customers
+  - name: stg_customer
     description: '{{ doc("customers_doc") }}'
   - name: stg_customer_purchases
     columns:
       - name: id_customer
         tests:
-          - not_null
+          - not_null:
+              config:
+                severity: error
+                error_if: ">1000"
+                warn_if: ">50"
           - relationships:
               to: ref('stg_customers')
               field: id_client

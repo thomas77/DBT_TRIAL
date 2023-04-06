@@ -3,7 +3,7 @@ version: 2
 sources:
   - name: raw
     database: test
-    description: C'est une base avec des raw data
+    description: Ce sont les tables contenant les données sources
     tables:
       - name : products 
       - name: customers
@@ -23,13 +23,8 @@ sources:
            tests:
              - accepted_values:
                  values:
-                   - "Agender"
-                   - "Genderqueer"
                    - "Male"
                    - "Female"
-                   - "Polygender"
-                   - "Bigender"
-                   - "Genderfluid"
                    - "Non-binary"
 
       - name: customer_purchases
